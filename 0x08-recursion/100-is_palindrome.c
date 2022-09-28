@@ -1,5 +1,5 @@
 /* 
- * File: 6-is_prime_number.c
+ * File: 100-is_palindrome.c
  * Auth: sam tech
  */
 
