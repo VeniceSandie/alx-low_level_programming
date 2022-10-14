@@ -1,24 +1,24 @@
-#include "variadic_functions.h"
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include "variadic_functions.h"
 
 /**
- * print_c - print a char
- * @c: char to print
- *
- * Return: void
- */
+* print_c - print a char
+* @c: char to print
+*
+* Return: void
+*/
 void print_c(va_list c)
 {
 	printf("%c", va_arg(c, int));
 }
 
 /**
- * print_s - prints a string
- * @s - string to print
- *
- * Return: void
- */
+* print_s - prints a string
+* @s: string to print
+*
+* Return: void
+*/
 void print_s(va_list s)
 {
 	char *str = va_arg(s, char *);
@@ -29,33 +29,34 @@ void print_s(va_list s)
 }
 
 /**
- * print_i - prints an int
- * @a: int to print
- *
- * Return: void
- */
+* print_i - prints an int
+* @i: int to print
+*
+* Return: void
+*/
 void print_i(va_list i)
 {
 	printf("%d", va_arg(i, int));
 }
 
 /**
- * print_f - prints a float
- * @f: float to print
- *
- * Return: void
- */
-void prin_f(va_list f)
+* print_f - prints a float
+* @f: float to print
+*
+* Return: void
+*/
+void print_f(va_list f)
 {
 	printf("%f", va_arg(f, double));
 }
 
+
 /**
- * print_all - prints anything
- * @format: list of argument type passed to the function
- *
- * Return: void
- */
+* print_all - prints anything
+* @format: list of argument types passed to the function
+*
+* Return: void
+*/
 void print_all(const char * const format, ...)
 {
 	unsigned int i, j;
@@ -65,7 +66,7 @@ void print_all(const char * const format, ...)
 		{"i", print_i},
 		{"f", print_f},
 		{NULL, NULL}
-	}
+	};
 	va_list valist;
 	char *separator = "";
 
@@ -78,18 +79,15 @@ void print_all(const char * const format, ...)
 		{
 			if (*(p[j].t) == format[i])
 			{
-				printf("%s", separattor);
+				printf("%s", separator);
 				p[j].f(valist);
 				separator = ", ";
 				break;
 			}
-			j++
+			j++;
 		}
-		i++
+		i++;
 	}
 	va_end(valist);
 	printf("\n");
-
 }
-
-					
